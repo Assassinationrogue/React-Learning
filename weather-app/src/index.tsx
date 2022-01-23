@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import '../src/index.css';
 import { Geolocation } from "./interface/geoLocation.interface";
 class App extends React.Component<JSX.Element, Geolocation> {
   constructor(props: JSX.Element) {
