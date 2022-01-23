@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../src/index.css";
 import { Geolocation } from "./interface/geoLocation.interface";
+import SeasonDisplay from "./SeasonDisplay";
 class App extends React.Component {
   state: Geolocation = { latitude: null, longitude: null, errorMessage: null };
   render(): React.ReactNode {
@@ -18,10 +19,10 @@ class App extends React.Component {
       this.state.longitude
     ) {
       return (
-        <div>
-          <span className="location">Latitude: {this.state.latitude}</span>
-          <span className="location">Longitude: {this.state.longitude}</span>
-        </div>
+        <SeasonDisplay
+          latitude={this.state.latitude}
+          longitude={this.state.longitude}
+        />
       );
     }
 
