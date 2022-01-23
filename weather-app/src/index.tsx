@@ -2,22 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../src/index.css";
 import { Geolocation } from "./interface/geoLocation.interface";
-class App extends React.Component<JSX.Element, Geolocation> {
-  constructor(props: JSX.Element) {
-    super(props);
-    this.state = { latitude: null, longitude: null, errorMessage: null };
-    window.navigator.geolocation.getCurrentPosition(
-      (position) => {
-        this.setState({
-          latitude: position?.coords.latitude,
-          longitude: position?.coords.longitude,
-        });
-      },
-      (err) => {
-        this.setState({ errorMessage: err.message });
-      }
-    );
-  }
+class App extends React.Component {
+  state: Geolocation = { latitude: null, longitude: null, errorMessage: null };
   render(): React.ReactNode {
     if (
       this.state.errorMessage &&
@@ -41,9 +27,20 @@ class App extends React.Component<JSX.Element, Geolocation> {
 
     return <div>Loading...</div>;
   }
+
+  componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({
+          latitude: position?.coords.latitude,
+          longitude: position?.coords.longitude,
+        });
+      },
+      (err) => {
+        this.setState({ errorMessage: err.message });
+      }
+    );
+  }
 }
 
-ReactDOM.render(
-  <App props="hello" type="number" key="App" />,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
