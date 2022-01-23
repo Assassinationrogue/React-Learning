@@ -4,7 +4,7 @@ import "../src/index.css";
 import { Geolocation } from "./interface/geoLocation.interface";
 import SeasonDisplay from "./SeasonDisplay";
 class App extends React.Component {
-  state: Geolocation = { latitude: null, longitude: null, errorMessage: null };
+  state: Geolocation = { latitude: 0, longitude: 0, errorMessage: null };
   render(): React.ReactNode {
     if (
       this.state.errorMessage &&

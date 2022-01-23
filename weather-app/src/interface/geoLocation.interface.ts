@@ -1,5 +1,5 @@
 export interface Geolocation {
-  latitude: number | null,
-  longitude: number | null,
+  latitude: number ,
+  longitude: number ,
   errorMessage?: string | null,
 }
