@@ -5,7 +5,7 @@ import { Geolocation } from "./interface/geoLocation.interface";
 class App extends React.Component<JSX.Element, Geolocation> {
   constructor(props: JSX.Element) {
     super(props);
-    this.state = { latitude: null, longitude: null, errorMessage: "" };
+    this.state = { latitude: null, longitude: null, errorMessage: null };
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({
@@ -19,12 +19,27 @@ class App extends React.Component<JSX.Element, Geolocation> {
     );
   }
   render(): React.ReactNode {
-    return (
-      <div>
-        <span className="location">Latitude: {this.state.latitude}</span>
-        <span className="location">Longitude: {this.state.longitude}</span>
-      </div>
-    );
+    if (
+      this.state.errorMessage &&
+      !this.state.latitude &&
+      !this.state.longitude
+    ) {
+      return <div>{this.state.errorMessage}</div>;
+    }
+    if (
+      !this.state.errorMessage &&
+      this.state.latitude &&
+      this.state.longitude
+    ) {
+      return (
+        <div>
+          <span className="location">Latitude: {this.state.latitude}</span>
+          <span className="location">Longitude: {this.state.longitude}</span>
+        </div>
+      );
+    }
+
+    return <div>Loading...</div>;
   }
 }
 
