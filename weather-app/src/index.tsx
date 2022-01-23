@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "../src/index.css";
 import { Geolocation } from "./interface/geoLocation.interface";
 import SeasonDisplay from "./SeasonDisplay";
+import "semantic-ui-css/semantic.min.css";
 class App extends React.Component {
   state: Geolocation = { latitude: 0, longitude: 0, errorMessage: null };
   render(): React.ReactNode {
