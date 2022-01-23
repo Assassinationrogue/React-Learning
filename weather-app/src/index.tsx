@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import '../src/index.css';
+import "../src/index.css";
 import { Geolocation } from "./interface/geoLocation.interface";
 class App extends React.Component<JSX.Element, Geolocation> {
   constructor(props: JSX.Element) {
     super(props);
-    this.state = { latitude: 40, longitude: 20 };
+    this.state = { latitude: null, longitude: null, errorMessage: "" };
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({
@@ -13,7 +13,9 @@ class App extends React.Component<JSX.Element, Geolocation> {
           longitude: position?.coords.longitude,
         });
       },
-      (err) => console.error(err)
+      (err) => {
+        this.setState({ errorMessage: err.message });
+      }
     );
   }
   render(): React.ReactNode {
