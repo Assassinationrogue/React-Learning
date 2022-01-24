@@ -1,5 +1,6 @@
 import React from "react";
-import { Geolocation } from "./interface/geoLocation.interface";
+import { Geolocation } from "../interface/geoLocation.interface";
+import './season.css';
 
 class SeasonDisplay extends React.Component<Geolocation> {
   season: string = "";
@@ -10,7 +11,10 @@ class SeasonDisplay extends React.Component<Geolocation> {
     );
     return (
       <div>
-        <span>{this.season}</span>
+        <i className="huge snowflake icon"></i>
+        <h2 className="winterText">Brr.. it's so chilly</h2>
+
+        <i className="huge snowflake icon"></i>
       </div>
     );
   }
