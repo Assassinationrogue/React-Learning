@@ -7,7 +7,13 @@ import Loader from "./spinner/spinner";
 
 class App extends React.Component {
   state: Geolocation = { latitude: 0, longitude: 0, errorMessage: null };
-  render(): React.ReactNode {
+
+  /**
+   * Renders content conditionally
+   * @param none
+   * @returns JSX.element
+   */
+  private renderContent(): JSX.Element {
     if (
       this.state.errorMessage &&
       !this.state.latitude &&
@@ -28,7 +34,11 @@ class App extends React.Component {
       );
     }
 
-    return <Loader />
+    return <Loader message="Please accept location" type="" key="" />;
+  }
+
+  render(): React.ReactNode {
+    return <div>{this.renderContent()}</div>;
   }
 
   componentDidMount() {
