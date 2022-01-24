@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../src/index.css";
 import { Geolocation } from "./interface/geoLocation.interface";
-import SeasonDisplay from "./SeasonDisplay";
+import SeasonDisplay from "./Season-Display/SeasonDisplay";
+import Loader from "./spinner/spinner";
+
 class App extends React.Component {
   state: Geolocation = { latitude: 0, longitude: 0, errorMessage: null };
   render(): React.ReactNode {
@@ -26,7 +28,7 @@ class App extends React.Component {
       );
     }
 
-    return <div>Loading...</div>;
+    return <Loader />
   }
 
   componentDidMount() {
