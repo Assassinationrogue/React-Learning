@@ -1,7 +1,25 @@
 .season-text{
     display: block;
-    border: 2px solid;
+   
     width: fit-content;
     margin: 10% auto;
     
+}
+
+.flk-clr{
+    color: skyblue;
+}
+
+.sun-clr{
+    color:rgb(238, 238, 70);
+}
+
+.down-flake{
+    display: block;
+    position: relative;
+ 
+    left: 94%;
+    right: 1%;
+    top: 1%;
+    bottom: 1%;
 }

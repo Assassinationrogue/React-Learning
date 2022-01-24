@@ -1,6 +1,6 @@
 import React from "react";
 import { Geolocation } from "../interface/geoLocation.interface";
-import './season.css';
+import "./season.css";
 
 class SeasonDisplay extends React.Component<Geolocation> {
   season: string = "";
@@ -9,14 +9,28 @@ class SeasonDisplay extends React.Component<Geolocation> {
       { latitude: this.props.latitude, longitude: this.props.longitude },
       new Date().getMonth()
     );
-    return (
-      <div>
-        <i className="huge snowflake icon"></i>
-        <h2 className="season-text">Brr.. it's so chilly</h2>
+    console.log(this.season)
+    if (this.season === "winter") {
+      return (
+        <div>
+          <i className="huge snowflake icon flk-clr"></i>
+          <h2 className="season-text">Brr.. it's so chilly</h2>
 
-        <i className="huge snowflake icon"></i>
-      </div>
-    );
+          <i className="huge snowflake icon down-flake flk-clr"></i>
+        </div>
+      );
+    } else if (this.season === "summer") {
+      return (
+        <div>
+          <i className="huge sun icon sun-clr"></i>
+          <h2 className="season-text">Head to the beach!</h2>
+
+          <i className="huge sun icon down-flake sun-clr"></i>
+        </div>
+      );
+    } else {
+      return <div>Loading...</div>;
+    }
   }
 
   /**
