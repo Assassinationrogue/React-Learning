@@ -28,7 +28,7 @@ class App extends React.Component {
       );
     }
 
-    return <Loader />
+    return <Loader message="Please accept location" type="" key=""/>
   }
 
   componentDidMount() {
