@@ -9,14 +9,17 @@ class SeasonDisplay extends React.Component<Geolocation> {
       { latitude: this.props.latitude, longitude: this.props.longitude },
       new Date().getMonth()
     );
-    console.log(this.season)
+    console.log(this.season);
     if (this.season === "winter") {
       return (
         <div>
           <i className="huge snowflake icon flk-clr"></i>
           <h2 className="season-text">Brr.. it's so chilly</h2>
 
-          <i className="huge snowflake icon down-flake flk-clr"></i>
+          <i
+            className=" down-flake huge snowflake icon  flk-clr"
+            style={{ display: "block" }}
+          ></i>
         </div>
       );
     } else if (this.season === "summer") {
