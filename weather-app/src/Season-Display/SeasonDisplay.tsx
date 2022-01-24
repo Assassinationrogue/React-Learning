@@ -12,7 +12,7 @@ class SeasonDisplay extends React.Component<Geolocation> {
     return (
       <div>
         <i className="huge snowflake icon"></i>
-        <h2 className="winterText">Brr.. it's so chilly</h2>
+        <h2 className="season-text">Brr.. it's so chilly</h2>
 
         <i className="huge snowflake icon"></i>
       </div>
