@@ -11,6 +11,12 @@ class Loader extends React.Component<any | JSX.Element> {
       </div>
     );
   }
+
+  static defaultProps = {
+      message: 'Loading...'
+  }
 }
+
+
 
 export default Loader;
